@@ -1,0 +1,27 @@
+syntax="proto3";
+
+option go_package="./pkg/models/protos";
+
+message RedirectRequest {
+    string ServiceRegistryId = 1;
+    string Uri = 2;
+    string Verb = 3;
+    bytes Content = 4;
+    string ContentEncode = 5;
+    repeated Header Headers = 6;
+}
+
+message Header {
+    string Key = 1;
+    string Value = 2;
+}
+
+message RedirectResponse {
+    int32 ResponseCode = 1;
+    bytes Content = 2;
+    repeated Header Headers = 3;
+}
+
+service TurniaServerInternalComunnication {
+    rpc Redirect(RedirectRequest) returns (RedirectResponse);
+}
