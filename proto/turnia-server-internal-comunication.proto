@@ -3,7 +3,7 @@ syntax="proto3";
 option go_package="./pkg/models/protos";
 
 message RedirectRequest {
-    string ServiceRegistryId = 1;
+    string RequestFromServiceRegistryId = 1;
     string Uri = 2;
     string Verb = 3;
     bytes Content = 4;
